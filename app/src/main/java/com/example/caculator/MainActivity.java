@@ -231,7 +231,8 @@ public class MainActivity extends AppCompatActivity {
      */
     public void btnEql(View view) {
         if (!display.getText().toString().equals("")) {
-            finalResult(savedValue, Float.parseFloat(display.getText().toString()));
+            String result = finalResult(savedValue, Float.parseFloat(display.getText().toString()));
+            display.setText(result);
         }
 
     }
@@ -240,9 +241,10 @@ public class MainActivity extends AppCompatActivity {
      * Compute the result and display it
      * @param num1 first number
      * @param num2 second number
+     * @return String result of computation
      */
     @SuppressLint("SetTextI18n")
-    private void finalResult(float num1, float num2) {
+    public String finalResult(float num1, float num2) {
         float result = 0;
         if (value == 1 ){
             result = (num1*num2);
@@ -259,7 +261,7 @@ public class MainActivity extends AppCompatActivity {
         }
         String result2 = Float.toString(result);
 
-        display.setText(result2);
+        return result2;
     }
 
 
